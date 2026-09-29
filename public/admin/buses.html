@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buses | NovaBus Admin</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/buses.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+<aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="sidebar-brand-icon">
+                <i class="bi bi-bus-front-fill"></i>
+            </div>
+            <div class="sidebar-brand-text">
+                <strong>NovaBus</strong>
+                <small>ADMIN PANEL</small>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+<div class="sidebar-section-title">PRINCIPAL</div>
+<a href="/admin/dashboard.html" class="sidebar-link"><i class="bi bi-grid-fill"></i><span>Dashboard</span></a>
+<div class="sidebar-section-title">GESTIÓN</div>
+<a href="/admin/usuarios.html" class="sidebar-link"><i class="bi bi-people"></i><span>Usuarios</span></a>
+<a href="/admin/empleados.html" class="sidebar-link"><i class="bi bi-person-badge"></i><span>Empleados</span></a>
+<a href="/admin/conductores.html" class="sidebar-link"><i class="bi bi-person-vcard"></i><span>Conductores</span></a>
+<a href="/admin/buses.html" class="sidebar-link active"><i class="bi bi-bus-front"></i><span>Buses</span></a>
+<a href="/admin/asientos.html" class="sidebar-link"><i class="bi bi-grid-3x3-gap"></i><span>Asientos</span></a>
+<a href="/admin/rutas.html" class="sidebar-link"><i class="bi bi-signpost-split"></i><span>Rutas</span></a>
+<a href="/admin/viajes.html" class="sidebar-link"><i class="bi bi-calendar2-week"></i><span>Viajes</span></a>
+<div class="sidebar-section-title">OPERACIONES</div>
+<a href="/admin/reservas.html" class="sidebar-link"><i class="bi bi-journal-check"></i><span>Reservas</span></a>
+<a href="/admin/boletos.html" class="sidebar-link"><i class="bi bi-ticket-perforated"></i><span>Boletos</span></a>
+<a href="/admin/pagos.html" class="sidebar-link"><i class="bi bi-credit-card"></i><span>Pagos</span></a>
+<a href="/admin/mantenimientos.html" class="sidebar-link"><i class="bi bi-tools"></i><span>Mantenimientos</span></a>
+</nav>
+        <div class="sidebar-footer">
+            <button id="btnCerrarSesion" type="button" class="btn-logout">
+                <i class="bi bi-box-arrow-left"></i>
+                Cerrar sesión
+            </button>
+        </div>
+    </aside>
+
+    <main class="admin-main">
+
+
+<header class="admin-topbar">
+    <div class="admin-topbar-content">
+        <button id="btnMenu" type="button" class="btn-menu">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <div class="topbar-actions">
+            <button type="button" class="notification-button" aria-label="Notificaciones">
+                <i class="bi bi-bell"></i>
+            </button>
+
+            <div class="admin-user">
+                <div class="admin-avatar">A</div>
+
+                <div class="admin-user-info">
+                    <strong id="nombreAdmin">Administrador</strong>
+                    <small>Administrador</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+        <section class="admin-content">
+            <div class="page-container">
+
+                <div class="page-header">
+                    <div><span class="page-eyebrow">FLOTA</span><h1 class="page-title">Buses</h1><p class="page-subtitle">Administra la flota de vehículos de NovaBus.</p></div>
+                    <button id="btnNuevoBus" type="button" class="btn-admin-primary"><i class="bi bi-plus-lg"></i> Registrar bus</button>
+                </div>
+
+                <div class="stats-grid stats-grid-4">
+                    <article class="stat-card"><div><span class="stat-label">TOTAL</span><h2 id="totalBuses" class="stat-value">0</h2><span class="stat-description">Buses registrados</span></div><div class="stat-icon purple"><i class="bi bi-bus-front"></i></div></article>
+                    <article class="stat-card"><div><span class="stat-label">DISPONIBLES</span><h2 id="busesDisponibles" class="stat-value">0</h2><span class="stat-description">Listos para operar</span></div><div class="stat-icon green"><i class="bi bi-check-circle"></i></div></article>
+                    <article class="stat-card"><div><span class="stat-label">EN VIAJE</span><h2 id="busesEnViaje" class="stat-value">0</h2><span class="stat-description">Actualmente operando</span></div><div class="stat-icon blue"><i class="bi bi-arrow-right-circle"></i></div></article>
+                    <article class="stat-card"><div><span class="stat-label">MANTENIMIENTO</span><h2 id="busesMantenimiento" class="stat-value">0</h2><span class="stat-description">Fuera de operación</span></div><div class="stat-icon orange"><i class="bi bi-tools"></i></div></article>
+                </div>
+
+                <div class="admin-card">
+                    <div class="admin-toolbar">
+                        <div class="search-box"><i class="bi bi-search"></i><input id="buscarBus" type="search" placeholder="Buscar por número, placa, marca o modelo..."></div>
+                        <select id="filtroEstadoBus" class="admin-filter"><option value="">Todos los estados</option><option value="DISPONIBLE">Disponible</option><option value="EN_VIAJE">En viaje</option><option value="MANTENIMIENTO">Mantenimiento</option><option value="INACTIVO">Inactivo</option></select>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead><tr><th>Bus</th><th>Placa</th><th>Marca / modelo</th><th>Año</th><th>Capacidad</th><th>Tipo</th><th>Estado</th><th class="text-end">Acciones</th></tr></thead>
+                            <tbody id="tablaBuses"><tr><td colspan="8"><div class="table-empty"><i class="bi bi-hourglass-split"></i><span>Cargando buses...</span></div></td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modalBus" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header"><div><span class="page-eyebrow">BUS</span><h5 id="tituloModalBus" class="modal-title">Registrar bus</h5></div><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                            <form id="formBus">
+                                <div class="modal-body">
+                                    <input type="hidden" id="idBus">
+                                    <div id="alertaBus" class="alert d-none"></div>
+                                    <div class="row g-3">
+                                        <div class="col-md-6"><label for="numeroBus" class="form-label">Número de bus *</label><input id="numeroBus" type="text" class="form-control" required></div>
+                                        <div class="col-md-6"><label for="placa" class="form-label">Placa *</label><input id="placa" type="text" class="form-control" required></div>
+                                        <div class="col-md-6"><label for="marca" class="form-label">Marca *</label><input id="marca" type="text" class="form-control" required></div>
+                                        <div class="col-md-6"><label for="modelo" class="form-label">Modelo *</label><input id="modelo" type="text" class="form-control" required></div>
+                                        <div class="col-md-4"><label for="anio" class="form-label">Año</label><input id="anio" type="number" class="form-control" min="1980" max="2100"></div>
+                                        <div class="col-md-4"><label for="capacidad" class="form-label">Capacidad *</label><input id="capacidad" type="number" class="form-control" min="1" max="100" required></div>
+                                        <div class="col-md-4"><label for="tipoBus" class="form-label">Tipo</label><input id="tipoBus" type="text" class="form-control" placeholder="Ej: Ejecutivo"></div>
+                                        <div class="col-12"><label for="estado" class="form-label">Estado *</label><select id="estado" class="form-select" required><option value="DISPONIBLE">Disponible</option><option value="EN_VIAJE">En viaje</option><option value="MANTENIMIENTO">Mantenimiento</option><option value="INACTIVO">Inactivo</option></select></div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button><button id="btnGuardarBus" type="submit" class="btn-admin-primary"><i class="bi bi-check-lg"></i> Guardar</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/admin.js"></script>
+<script src="/js/buses.js"></script>
+</body>
+</html>

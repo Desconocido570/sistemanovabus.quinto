@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Inicio | NovaBus</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/cliente.css"
+    >
+
+</head>
+
+<body>
+
+
+<header class="client-navbar">
+
+    <a
+        href="/cliente/inicio.html"
+        class="client-brand"
+    >
+
+        <span class="client-brand-icon">
+            <i class="bi bi-bus-front-fill"></i>
+        </span>
+
+        NovaBus
+
+    </a>
+
+
+    <nav class="client-nav-links">
+
+
+        <a
+            href="/cliente/inicio.html"
+            class="active"
+        >
+
+            <i class="bi bi-search"></i>
+
+            <span>
+                Buscar
+            </span>
+
+        </a>
+
+
+        <a href="/cliente/reservas.html">
+
+            <i class="bi bi-journal-check"></i>
+
+            <span>
+                Mis reservas
+            </span>
+
+        </a>
+
+
+        <a href="/cliente/mis-boletos.html">
+
+            <i class="bi bi-ticket-perforated"></i>
+
+            <span>
+                Mis boletos
+            </span>
+
+        </a>
+
+
+        <a href="/cliente/perfil.html">
+
+            <i class="bi bi-person"></i>
+
+            <span>
+                Perfil
+            </span>
+
+        </a>
+
+
+        <button
+            id="btnCerrarSesion"
+            type="button"
+        >
+
+            <i class="bi bi-box-arrow-right"></i>
+
+            <span>
+                Salir
+            </span>
+
+        </button>
+
+
+    </nav>
+
+
+</header>
+
+
+<main class="client-shell">
+
+
+    <section class="hero-client">
+
+
+        <span class="hero-label">
+            VIAJA CON NOVABUS
+        </span>
+
+
+        <h1>
+            Encuentra tu próximo destino.
+        </h1>
+
+
+        <p>
+
+            Busca rutas disponibles, elige el horario que más
+            te convenga y selecciona tus asientos antes de viajar.
+
+        </p>
+
+
+    </section>
+
+
+    <section class="search-trip-card">
+
+
+        <form
+            id="formBuscarViaje"
+            class="search-trip-grid"
+        >
+
+
+            <div>
+
+                <label class="field-label">
+                    Origen
+                </label>
+
+                <input
+                    type="text"
+                    id="origen"
+                    class="client-control"
+                    placeholder="Ej: Machala"
+                >
+
+            </div>
+
+
+            <div>
+
+                <label class="field-label">
+                    Destino
+                </label>
+
+                <input
+                    type="text"
+                    id="destino"
+                    class="client-control"
+                    placeholder="Ej: Guayaquil"
+                >
+
+            </div>
+
+
+            <div>
+
+                <label class="field-label">
+                    Fecha
+                </label>
+
+                <input
+                    type="date"
+                    id="fecha"
+                    class="client-control"
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="btn-client-primary"
+            >
+
+                <i class="bi bi-search"></i>
+
+                Buscar viajes
+
+            </button>
+
+
+        </form>
+
+
+    </section>
+
+
+    <section class="client-section">
+
+
+        <div class="client-section-heading">
+
+
+            <div>
+
+                <span class="section-kicker">
+                    VIAJES DISPONIBLES
+                </span>
+
+                <h2>
+                    Elige tu viaje
+                </h2>
+
+                <p id="textoResultados">
+                    Mostrando próximos viajes.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                Hola,
+
+                <strong id="nombreCliente">
+                    Cliente
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <div
+            id="listaViajes"
+            class="trip-grid"
+        >
+
+
+            <div class="empty-client">
+
+                Cargando viajes...
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<script src="/js/cliente-api.js"></script>
+<script src="/js/cliente.js"></script>
+
+
+</body>
+</html>

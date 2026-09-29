@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | NovaBus Admin</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/admin.css"
+    >
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">
+                <i class="bi bi-bus-front-fill"></i>
+            </div>
+
+            <div>
+                <span class="brand-main">Nova</span>
+                <span class="brand-secondary">Bus</span>
+                <small>ADMIN PANEL</small>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <span class="menu-title">
+                PRINCIPAL
+            </span>
+
+            <a
+                href="/admin/dashboard.html"
+                class="menu-item active"
+            >
+                <i class="bi bi-grid-fill"></i>
+                <span>Dashboard</span>
+            </a>
+
+
+            <span class="menu-title">
+                GESTIÓN
+            </span>
+
+            <a
+                href="/admin/usuarios.html"
+                class="menu-item"
+            >
+                <i class="bi bi-people"></i>
+                <span>Usuarios</span>
+            </a>
+
+            <a
+                href="/admin/empleados.html"
+                class="menu-item"
+            >
+                <i class="bi bi-person-badge"></i>
+                <span>Empleados</span>
+            </a>
+
+            <a
+                href="/admin/conductores.html"
+                class="menu-item"
+            >
+                <i class="bi bi-person-vcard"></i>
+                <span>Conductores</span>
+            </a>
+
+            <a
+                href="/admin/buses.html"
+                class="menu-item"
+            >
+                <i class="bi bi-bus-front"></i>
+                <span>Buses</span>
+            </a>
+
+            <a
+                href="/admin/asientos.html"
+                class="menu-item"
+            >
+                <i class="bi bi-grid-3x3-gap"></i>
+                <span>Asientos</span>
+            </a>
+
+            <a
+                href="/admin/rutas.html"
+                class="menu-item"
+            >
+                <i class="bi bi-signpost-split"></i>
+                <span>Rutas</span>
+            </a>
+
+            <a
+                href="/admin/viajes.html"
+                class="menu-item"
+            >
+                <i class="bi bi-calendar2-week"></i>
+                <span>Viajes</span>
+            </a>
+
+
+            <span class="menu-title">
+                OPERACIONES
+            </span>
+
+            <a
+                href="/admin/reservas.html"
+                class="menu-item"
+            >
+                <i class="bi bi-journal-check"></i>
+                <span>Reservas</span>
+            </a>
+
+            <a
+                href="/admin/boletos.html"
+                class="menu-item"
+            >
+                <i class="bi bi-ticket-perforated"></i>
+                <span>Boletos</span>
+            </a>
+
+            <a
+                href="/admin/pagos.html"
+                class="menu-item"
+            >
+                <i class="bi bi-credit-card"></i>
+                <span>Pagos</span>
+            </a>
+
+            <a
+                href="/admin/mantenimientos.html"
+                class="menu-item"
+            >
+                <i class="bi bi-tools"></i>
+                <span>Mantenimientos</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <button
+                id="btnCerrarSesion"
+                class="btn-logout"
+                type="button"
+            >
+                <i class="bi bi-box-arrow-left"></i>
+                <span>Cerrar sesión</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <button
+                class="btn-menu-mobile"
+                id="btnMenu"
+                type="button"
+            >
+                <i class="bi bi-list"></i>
+            </button>
+
+            <div class="topbar-right">
+
+                <button
+                    class="topbar-icon"
+                    type="button"
+                >
+                    <i class="bi bi-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar">
+                        A
+                    </div>
+
+                    <div class="admin-info">
+
+                        <strong id="nombreAdmin">
+                            Administrador
+                        </strong>
+
+                        <small>
+                            Administrador
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="dashboard-content">
+
+            <div class="dashboard-heading">
+
+                <div>
+
+                    <span class="heading-label">
+                        PANEL DE CONTROL
+                    </span>
+
+                    <h1>
+                        Bienvenido,
+                        <span id="nombreBienvenida">
+                            Administrador
+                        </span>
+                    </h1>
+
+                    <p>
+                        Resumen actualizado del sistema NovaBus.
+                    </p>
+
+                </div>
+
+                <div class="date-box">
+
+                    <i class="bi bi-calendar3"></i>
+
+                    <span id="fechaActual">
+                        -
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="row g-4 mb-4">
+
+                <div class="col-xl-3 col-md-6">
+
+                    <div class="stat-card">
+
+                        <div class="stat-card-content">
+
+                            <div>
+
+                                <span class="stat-label">
+                                    BUSES
+                                </span>
+
+                                <h2 id="statBuses">
+                                    0
+                                </h2>
+
+                                <p>
+                                    Total registrados
+                                </p>
+
+                            </div>
+
+                            <div class="stat-icon icon-purple">
+                                <i class="bi bi-bus-front-fill"></i>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-xl-3 col-md-6">
+
+                    <div class="stat-card">
+
+                        <div class="stat-card-content">
+
+                            <div>
+
+                                <span class="stat-label">
+                                    VIAJES
+                                </span>
+
+                                <h2 id="statViajes">
+                                    0
+                                </h2>
+
+                                <p>
+                                    Viajes programados
+                                </p>
+
+                            </div>
+
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-signpost-2-fill"></i>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-xl-3 col-md-6">
+
+                    <div class="stat-card">
+
+                        <div class="stat-card-content">
+
+                            <div>
+
+                                <span class="stat-label">
+                                    RESERVAS
+                                </span>
+
+                                <h2 id="statReservas">
+                                    0
+                                </h2>
+
+                                <p>
+                                    Reservas no canceladas
+                                </p>
+
+                            </div>
+
+                            <div class="stat-icon icon-green">
+                                <i class="bi bi-journal-check"></i>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-xl-3 col-md-6">
+
+                    <div class="stat-card">
+
+                        <div class="stat-card-content">
+
+                            <div>
+
+                                <span class="stat-label">
+                                    INGRESOS
+                                </span>
+
+                                <h2 id="statIngresos">
+                                    $0.00
+                                </h2>
+
+                                <p>
+                                    Pagos aprobados
+                                </p>
+
+                            </div>
+
+                            <div class="stat-icon icon-orange">
+                                <i class="bi bi-cash-stack"></i>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <div class="col-xl-8">
+
+                    <div class="panel-card">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    ACTIVIDAD
+                                </span>
+
+                                <h4>
+                                    Próximos viajes
+                                </h4>
+
+                            </div>
+
+                            <a
+                                href="/admin/viajes.html"
+                                class="btn-view-all text-decoration-none"
+                            >
+                                Ver todos
+                            </a>
+
+                        </div>
+
+
+                        <div class="table-responsive">
+
+                            <table class="table align-middle dashboard-table">
+
+                                <thead>
+
+                                    <tr>
+                                        <th>Ruta</th>
+                                        <th>Bus</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Estado</th>
+                                    </tr>
+
+                                </thead>
+
+                                <tbody id="tablaProximosViajes">
+
+                                    <tr>
+
+                                        <td colspan="5">
+
+                                            <div class="empty-table">
+
+                                                <span>
+                                                    Cargando próximos viajes...
+                                                </span>
+
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-xl-4">
+
+                    <div class="panel-card">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    GESTIÓN
+                                </span>
+
+                                <h4>
+                                    Accesos rápidos
+                                </h4>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="quick-actions">
+
+                            <a
+                                href="/admin/buses.html"
+                                class="quick-action"
+                            >
+
+                                <div class="quick-icon">
+                                    <i class="bi bi-bus-front"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Registrar bus</strong>
+                                    <small>Agregar nuevo vehículo</small>
+                                </div>
+
+                                <i class="bi bi-chevron-right"></i>
+
+                            </a>
+
+
+                            <a
+                                href="/admin/asientos.html"
+                                class="quick-action"
+                            >
+
+                                <div class="quick-icon">
+                                    <i class="bi bi-grid-3x3-gap"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Gestionar asientos</strong>
+                                    <small>Tipo y disponibilidad</small>
+                                </div>
+
+                                <i class="bi bi-chevron-right"></i>
+
+                            </a>
+
+
+                            <a
+                                href="/admin/rutas.html"
+                                class="quick-action"
+                            >
+
+                                <div class="quick-icon">
+                                    <i class="bi bi-signpost-split"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Nueva ruta</strong>
+                                    <small>Crear trayecto</small>
+                                </div>
+
+                                <i class="bi bi-chevron-right"></i>
+
+                            </a>
+
+
+                            <a
+                                href="/admin/viajes.html"
+                                class="quick-action"
+                            >
+
+                                <div class="quick-icon">
+                                    <i class="bi bi-calendar-plus"></i>
+                                </div>
+
+                                <div>
+                                    <strong>Programar viaje</strong>
+                                    <small>Crear nueva salida</small>
+                                </div>
+
+                                <i class="bi bi-chevron-right"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/admin.js"></script>
+
+</body>
+</html>

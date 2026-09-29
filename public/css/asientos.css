@@ -1,0 +1,1049 @@
+/* =========================================================
+   ASIENTOS - NOVABUS ADMIN
+========================================================= */
+
+
+/* =========================================================
+   FILTROS
+========================================================= */
+
+.seat-filters-card {
+
+    margin-bottom: 18px;
+
+    padding: 18px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+
+    border:
+        1px solid
+        #e3e9f2;
+
+    border-radius: 17px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 8px 24px
+        rgba(15, 23, 42, 0.045);
+
+}
+
+
+.seat-filter-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+.seat-filter-group label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #334155;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+}
+
+
+.seat-filter-group label i {
+
+    color: #5b5cf0;
+
+}
+
+
+.seat-filter-group .form-select {
+
+    min-height: 48px;
+
+    border-radius: 12px;
+
+}
+
+
+/* =========================================================
+   LEYENDA
+========================================================= */
+
+.seat-legend {
+
+    margin-bottom: 18px;
+
+    padding:
+
+        12px
+        16px;
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    border:
+
+        1px solid
+        #e3e9f2;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+}
+
+
+.legend-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #64748b;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+}
+
+
+.legend-box {
+
+    width: 18px;
+
+    height: 18px;
+
+    border-radius: 5px;
+
+    border:
+        1px solid transparent;
+
+}
+
+
+.legend-box.normal {
+
+    background: #eef2ff;
+
+    border-color: #b7c5ff;
+
+}
+
+
+.legend-box.vip {
+
+    background: #fff1bf;
+
+    border-color: #f9ce4b;
+
+}
+
+
+.legend-box.preferencial {
+
+    background: #dff3ff;
+
+    border-color: #8cd6ff;
+
+}
+
+
+.legend-box.reserved {
+
+    background: #d1d5db;
+
+    border-color: #9ca3af;
+
+}
+
+
+.legend-box.sold {
+
+    background: #6b7280;
+
+    border-color: #4b5563;
+
+}
+
+
+.legend-box.inactive {
+
+    background: #f1f5f9;
+
+    border-color: #cbd5e1;
+
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.seat-empty-card {
+
+    min-height: 340px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    border:
+
+        1px dashed
+        #d4dde9;
+
+    border-radius: 20px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.75
+        );
+
+}
+
+
+.seat-empty-icon {
+
+    width: 72px;
+
+    height: 72px;
+
+    margin-bottom: 15px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 20px;
+
+    color: #5b5cf0;
+
+    background: #eef2ff;
+
+    font-size: 30px;
+
+}
+
+
+.seat-empty-card h3 {
+
+    margin:
+
+        0
+        0
+        6px;
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+}
+
+
+.seat-empty-card p {
+
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   CARD PRINCIPAL
+========================================================= */
+
+.seat-main-card {
+
+    padding: 22px;
+
+    border:
+
+        1px solid
+        #e3e9f2;
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    box-shadow:
+
+        0
+        12px
+        34px
+
+        rgba(
+            15,
+            23,
+            42,
+            0.06
+        );
+
+}
+
+
+.seat-view-header {
+
+    margin-bottom: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+
+.seat-view-label {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #5b5cf0;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+}
+
+
+.seat-view-header h2 {
+
+    margin: 0;
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+}
+
+
+.seat-view-header p {
+
+    margin:
+
+        5px
+        0
+        0;
+
+    color: #64748b;
+
+    font-size: 9px;
+
+}
+
+
+/* =========================================================
+   CONTADORES
+========================================================= */
+
+.occupancy-summary {
+
+    display: flex;
+
+    gap: 9px;
+
+}
+
+
+.occupancy-summary > div {
+
+    min-width: 92px;
+
+    padding:
+
+        11px
+        13px;
+
+    border:
+
+        1px solid
+        #e5eaf2;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    background: #f8fafc;
+
+}
+
+
+.occupancy-summary strong {
+
+    display: block;
+
+    color: #0f172a;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+}
+
+
+.occupancy-summary span {
+
+    color: #94a3b8;
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   BUS
+========================================================= */
+
+.admin-bus-shell {
+
+    width:
+        min(
+            680px,
+            100%
+        );
+
+    margin:
+        0
+        auto;
+
+    padding:
+
+        28px
+        28px
+        34px;
+
+    border:
+
+        2px solid
+        #dbe4ef;
+
+    border-radius:
+
+        52px
+        52px
+        24px
+        24px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #f8fafc,
+            #ffffff
+        );
+
+}
+
+
+.bus-front-row {
+
+    margin-bottom: 24px;
+
+    padding-bottom: 17px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom:
+
+        1px dashed
+        #cbd5e1;
+
+}
+
+
+.bus-front-row strong {
+
+    color: #26415f;
+
+    font-size: 10px;
+
+}
+
+
+.bus-front-row span {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: #26415f;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   GRID ASIENTOS
+========================================================= */
+
+.admin-seats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+
+        1fr
+        1fr
+
+        42px
+
+        1fr
+        1fr;
+
+    gap:
+
+        11px
+        10px;
+
+}
+
+
+.admin-seat {
+
+    min-height: 55px;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+
+        1px solid
+        #b7c5ff;
+
+    border-radius: 13px;
+
+    color: #1d27b5;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #f2f4ff,
+            #edf1ff
+        );
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+
+        transform
+        0.16s ease,
+
+        box-shadow
+        0.16s ease,
+
+        border-color
+        0.16s ease;
+
+}
+
+
+.admin-seat:nth-child(4n + 3) {
+
+    grid-column: 4;
+
+}
+
+
+.admin-seat:nth-child(4n + 4) {
+
+    grid-column: 5;
+
+}
+
+
+.admin-seat:hover:not(:disabled) {
+
+    transform:
+        translateY(-2px);
+
+    border-color: #7c8cff;
+
+    box-shadow:
+
+        0
+        10px
+        20px
+
+        rgba(
+            91,
+            92,
+            240,
+            0.13
+        );
+
+}
+
+
+.admin-seat small {
+
+    margin-top: 2px;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   VIP
+========================================================= */
+
+.admin-seat.vip {
+
+    color: #9a4d00;
+
+    border-color: #f7ca45;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #fff5c9,
+            #ffefb0
+        );
+
+}
+
+
+/* =========================================================
+   PREFERENCIAL
+========================================================= */
+
+.admin-seat.preferencial {
+
+    color: #0369a1;
+
+    border-color: #8bd5ff;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #e0f4ff,
+            #d4efff
+        );
+
+}
+
+
+/* =========================================================
+   RESERVADO
+========================================================= */
+
+.admin-seat.reserved {
+
+    color: #4b5563 !important;
+
+    border-color: #9ca3af !important;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #e5e7eb,
+            #d1d5db
+        ) !important;
+
+    cursor: not-allowed;
+
+    box-shadow: none;
+
+    opacity: 0.9;
+
+}
+
+
+.admin-seat.reserved small {
+
+    color: #4b5563;
+
+}
+
+
+/* =========================================================
+   VENDIDO
+========================================================= */
+
+.admin-seat.sold {
+
+    color: #ffffff !important;
+
+    border-color: #4b5563 !important;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #7b8492,
+            #5f6875
+        ) !important;
+
+    cursor: not-allowed;
+
+    box-shadow: none;
+
+}
+
+
+.admin-seat.sold small {
+
+    color: #f8fafc;
+
+}
+
+
+/* =========================================================
+   INACTIVO
+========================================================= */
+
+.admin-seat.inactive {
+
+    color: #94a3b8;
+
+    border-color: #cbd5e1;
+
+    background:
+
+        #f1f5f9;
+
+}
+
+
+/* =========================================================
+   SOLO LECTURA
+========================================================= */
+
+.admin-seat.readonly {
+
+    cursor: default;
+
+}
+
+
+.admin-seat.readonly:not(
+    .reserved
+):not(
+    .sold
+) {
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   CANDADO
+========================================================= */
+
+.seat-lock {
+
+    position: absolute;
+
+    top: 5px;
+
+    right: 7px;
+
+    font-size: 8px;
+
+}
+
+
+/* =========================================================
+   DETALLE RESERVA SWEETALERT
+========================================================= */
+
+.seat-reservation-detail {
+
+    margin-top: 12px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap: 10px;
+
+    text-align: left;
+
+}
+
+
+.seat-reservation-detail > div {
+
+    padding: 12px;
+
+    border:
+
+        1px solid
+        #e2e8f0;
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+}
+
+
+.seat-reservation-detail span {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #94a3b8;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+}
+
+
+.seat-reservation-detail strong {
+
+    color: #0f172a;
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   SWEETALERT EDIT
+========================================================= */
+
+.seat-edit-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+
+.seat-edit-form label {
+
+    width: 80%;
+
+    margin-top: 9px;
+
+    text-align: left;
+
+    color: #475569;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+}
+
+
+.seat-edit-form .swal2-input {
+
+    width: 80%;
+
+    margin:
+
+        5px
+        0
+        10px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(
+    max-width:
+        850px
+) {
+
+    .seat-filters-card {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .seat-view-header {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .occupancy-summary {
+
+        width: 100%;
+
+    }
+
+
+    .occupancy-summary > div {
+
+        flex: 1;
+
+        min-width: 0;
+
+    }
+
+}
+
+
+@media(
+    max-width:
+        620px
+) {
+
+    .seat-main-card {
+
+        padding: 13px;
+
+    }
+
+
+    .admin-bus-shell {
+
+        padding:
+
+            20px
+            14px
+            25px;
+
+        border-radius:
+
+            32px
+            32px
+            18px
+            18px;
+
+    }
+
+
+    .admin-seats-grid {
+
+        grid-template-columns:
+
+            1fr
+            1fr
+
+            22px
+
+            1fr
+            1fr;
+
+        gap: 8px;
+
+    }
+
+
+    .admin-seat {
+
+        min-height: 50px;
+
+        font-size: 9px;
+
+    }
+
+
+    .occupancy-summary {
+
+        flex-direction: column;
+
+    }
+
+
+    .seat-reservation-detail {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Asientos | NovaBus
+    </title>
+
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="/css/admin.css"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="/css/asientos.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="admin-layout">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    =================================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">
+
+                <i class="bi bi-bus-front-fill"></i>
+
+            </div>
+
+
+            <div>
+
+                <span class="brand-main">
+                    Nova
+                </span>
+
+                <span class="brand-secondary">
+                    Bus
+                </span>
+
+                <small>
+                    ADMIN PANEL
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+
+            <span class="menu-title">
+                PRINCIPAL
+            </span>
+
+
+            <a
+                href="/admin/dashboard.html"
+                class="menu-item"
+            >
+
+                <i class="bi bi-grid-fill"></i>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <span class="menu-title">
+                GESTIÓN
+            </span>
+
+
+            <a
+                href="/admin/usuarios.html"
+                class="menu-item"
+            >
+
+                <i class="bi bi-people"></i>
+
+                <span>
+                    Usuarios
+                </span>
+
+            </a>
+
+
+            <a
+                href="/admin/empleados.html"
+                class="menu-item"
+            >
+
+                <i class="bi bi-person-badge"></i>
+
+                <span>
+                    Empleados
+                </span>
+
+            </a>
+
+
+            <a
+                href="/admin/conductores.html"
+                class="menu-item"
+            >
+
+                <i class="bi bi-person-vcard"></i>
+
+                <span>
+                    Conductores
+                </span>
+
+            </a>
+
+
+            <a
+                href="/admin/buses.html"
+                class="menu-item"
+            >
+
+                <i class="bi bi-bus-front"></i>
+
+                <span>
+                    Buses
+                </span>
+
+            </a>
+
+
+            <a
+                href="/admin/asientos.html"
+                class="menu-item active"
+            >
+
+                <i class="bi bi-grid-3x3-gap"></i>
+
+                <span>
+                    Asientos
+                </span>
+
+            </a>
+
+
+            <a
+                href="/admin/rutas.html"
+                class="menu-item"
+            >
+
+                <i class="bi bi-signpost-split"></i>
+
+                <span>
+                    Rutas
+                </span>
+
+            </a>
+
+
+            <a
+                href="/admin/viajes.html"
+                class="menu-item"
+            >
+
+                <i class="bi bi-calendar2-week"></i>
+
+                <span>
+                    Viajes
+                </span>
+
+            </a>
+
+
+            <span class="menu-title">
+                OPERACIONES
+            </span>
+
+
+            <a
+                href="/admin/reservas.html"
+                class="menu-item"
+            >
+
+                <i class="bi bi-journal-check"></i>
+
+                <span>
+                    Reservas
+                </span>
+
+            </a>
+
+
+            <a
+                href="/admin/boletos.html"
+                class="menu-item"
+            >
+
+                <i class="bi bi-ticket-perforated"></i>
+
+                <span>
+                    Boletos
+                </span>
+
+            </a>
+
+
+            <a
+                href="/admin/pagos.html"
+                class="menu-item"
+            >
+
+                <i class="bi bi-credit-card"></i>
+
+                <span>
+                    Pagos
+                </span>
+
+            </a>
+
+
+            <a
+                href="/admin/mantenimientos.html"
+                class="menu-item"
+            >
+
+                <i class="bi bi-tools"></i>
+
+                <span>
+                    Mantenimientos
+                </span>
+
+            </a>
+
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <button
+                id="btnCerrarSesion"
+                type="button"
+                class="btn-logout"
+            >
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                Cerrar sesión
+
+            </button>
+
+        </div>
+
+
+    </aside>
+
+
+    <!-- ==================================================
+         CONTENIDO
+    =================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <button
+                id="btnMenu"
+                type="button"
+                class="btn-menu-mobile"
+            >
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <div class="topbar-right">
+
+
+                <button
+                    type="button"
+                    class="topbar-icon"
+                >
+
+                    <i class="bi bi-bell"></i>
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <div class="admin-profile">
+
+
+                    <div class="admin-avatar">
+                        A
+                    </div>
+
+
+                    <div class="admin-info">
+
+                        <strong id="nombreAdmin">
+                            Administrador
+                        </strong>
+
+                        <small>
+                            Administrador
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+        <!-- CONTENIDO -->
+
+        <section class="dashboard-content">
+
+
+            <!-- TÍTULO -->
+
+            <div class="dashboard-heading">
+
+
+                <div>
+
+                    <span class="heading-label">
+                        FLOTA
+                    </span>
+
+                    <h1>
+                        Gestión de asientos
+                    </h1>
+
+                    <p>
+                        Configura los asientos del bus y consulta su ocupación por viaje.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- ==================================================
+                 FILTROS
+            =================================================== -->
+
+            <section class="seat-filters-card">
+
+
+                <div class="seat-filter-group">
+
+                    <label for="selectBus">
+
+                        <i class="bi bi-bus-front"></i>
+
+                        Selecciona un bus
+
+                    </label>
+
+
+                    <select
+                        id="selectBus"
+                        class="form-select"
+                    >
+
+                        <option value="">
+                            Seleccionar bus...
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="seat-filter-group">
+
+                    <label for="selectViaje">
+
+                        <i class="bi bi-calendar2-week"></i>
+
+                        Vista de asientos
+
+                    </label>
+
+
+                    <select
+                        id="selectViaje"
+                        class="form-select"
+                        disabled
+                    >
+
+                        <option value="">
+                            Primero selecciona un bus
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- ==================================================
+                 LEYENDA
+            =================================================== -->
+
+            <section class="seat-legend">
+
+
+                <div class="legend-item">
+
+                    <span class="legend-box normal"></span>
+
+                    Normal
+
+                </div>
+
+
+                <div class="legend-item">
+
+                    <span class="legend-box vip"></span>
+
+                    VIP
+
+                </div>
+
+
+                <div class="legend-item">
+
+                    <span class="legend-box preferencial"></span>
+
+                    Preferencial
+
+                </div>
+
+
+                <div class="legend-item">
+
+                    <span class="legend-box reserved"></span>
+
+                    Reservado
+
+                </div>
+
+
+                <div class="legend-item">
+
+                    <span class="legend-box sold"></span>
+
+                    Vendido / pagado
+
+                </div>
+
+
+                <div class="legend-item">
+
+                    <span class="legend-box inactive"></span>
+
+                    Inactivo
+
+                </div>
+
+
+            </section>
+
+
+            <!-- ==================================================
+                 ESTADO INICIAL
+            =================================================== -->
+
+            <section
+                id="mensajeAsientos"
+                class="seat-empty-card"
+            >
+
+
+                <div class="seat-empty-icon">
+
+                    <i class="bi bi-grid-3x3-gap"></i>
+
+                </div>
+
+
+                <h3>
+                    Selecciona un bus
+                </h3>
+
+
+                <p>
+                    Luego podrás configurar sus asientos o consultar la ocupación de un viaje.
+                </p>
+
+
+            </section>
+
+
+            <!-- ==================================================
+                 BUS VISUAL
+            =================================================== -->
+
+            <section
+                id="contenedorBusAsientos"
+                class="seat-main-card d-none"
+            >
+
+
+                <div class="seat-view-header">
+
+
+                    <div>
+
+                        <span class="seat-view-label">
+                            BUS SELECCIONADO
+                        </span>
+
+                        <h2 id="tituloBusAsientos">
+                            -
+                        </h2>
+
+                        <p id="subtituloVistaAsientos">
+                            Configuración general del bus
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="contadorOcupacion"
+                        class="occupancy-summary d-none"
+                    >
+
+                        <div>
+
+                            <strong id="cantidadDisponibles">
+                                0
+                            </strong>
+
+                            <span>
+                                Disponibles
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong id="cantidadReservados">
+                                0
+                            </strong>
+
+                            <span>
+                                Reservados
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong id="cantidadVendidos">
+                                0
+                            </strong>
+
+                            <span>
+                                Vendidos
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="admin-bus-shell">
+
+
+                    <div class="bus-front-row">
+
+
+                        <strong id="tituloBusInterno">
+                            BUS
+                        </strong>
+
+
+                        <span>
+
+                            <i class="bi bi-circle"></i>
+
+                            CONDUCTOR
+
+                        </span>
+
+
+                    </div>
+
+
+                    <div
+                        id="listaAsientosAdmin"
+                        class="admin-seats-grid"
+                    ></div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/sweetalert2@11"
+></script>
+
+
+<script src="/js/admin.js"></script>
+
+<script src="/js/asientos.js"></script>
+
+
+</body>
+
+</html>

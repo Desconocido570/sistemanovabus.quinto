@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mi perfil | NovaBus</title>
+
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="/css/cliente.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="client-navbar">
+
+
+    <a
+        href="/cliente/inicio.html"
+        class="client-brand"
+    >
+
+        <span class="client-brand-icon">
+
+            <i class="bi bi-bus-front-fill"></i>
+
+        </span>
+
+        NovaBus
+
+    </a>
+
+
+    <nav class="client-nav-links">
+
+
+        <a href="/cliente/inicio.html">
+
+            <i class="bi bi-search"></i>
+
+            <span>
+                Buscar
+            </span>
+
+        </a>
+
+
+        <a href="/cliente/mis-boletos.html">
+
+            <i class="bi bi-ticket-perforated"></i>
+
+            <span>
+                Mis boletos
+            </span>
+
+        </a>
+
+
+        <a
+            href="/cliente/perfil.html"
+            class="active"
+        >
+
+            <i class="bi bi-person"></i>
+
+            <span>
+                Perfil
+            </span>
+
+        </a>
+
+
+        <button
+            id="btnCerrarSesion"
+            type="button"
+        >
+
+            <i class="bi bi-box-arrow-right"></i>
+
+            <span>
+                Salir
+            </span>
+
+        </button>
+
+
+    </nav>
+
+
+</header>
+
+
+
+<main class="client-shell">
+
+
+    <div class="page-title">
+
+        <span class="section-kicker">
+            MI CUENTA
+        </span>
+
+        <h1>
+            Mi perfil
+        </h1>
+
+        <p>
+            Mantén tus datos personales actualizados.
+        </p>
+
+    </div>
+
+
+
+    <div class="profile-grid">
+
+
+        <aside class="profile-summary">
+
+
+            <div
+                id="avatarPerfil"
+                class="profile-avatar"
+            >
+                NB
+            </div>
+
+
+            <h3 id="nombrePerfil">
+                Cliente NovaBus
+            </h3>
+
+
+            <p id="correoPerfil">
+                -
+            </p>
+
+
+            <span class="status-badge status-green">
+                CLIENTE
+            </span>
+
+
+        </aside>
+
+
+
+        <section class="profile-form">
+
+
+            <div
+                id="alertaPerfil"
+                class="alert-client hidden"
+            ></div>
+
+
+            <form id="formPerfil">
+
+
+                <div class="form-grid-client">
+
+
+                    <div>
+
+                        <label class="field-label">
+                            Cédula
+                        </label>
+
+                        <input
+                            id="cedula"
+                            class="client-control"
+                            type="text"
+                            disabled
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label class="field-label">
+                            Correo *
+                        </label>
+
+                        <input
+                            id="correo"
+                            class="client-control"
+                            type="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label class="field-label">
+                            Nombres *
+                        </label>
+
+                        <input
+                            id="nombres"
+                            class="client-control"
+                            type="text"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label class="field-label">
+                            Apellidos *
+                        </label>
+
+                        <input
+                            id="apellidos"
+                            class="client-control"
+                            type="text"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label class="field-label">
+                            Teléfono
+                        </label>
+
+                        <input
+                            id="telefono"
+                            class="client-control"
+                            type="text"
+                            maxlength="20"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label class="field-label">
+                            Fecha de nacimiento
+                        </label>
+
+                        <input
+                            id="fechaNacimiento"
+                            class="client-control"
+                            type="date"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label class="field-label">
+                            Nueva contraseña
+                        </label>
+
+                        <input
+                            id="password"
+                            class="client-control"
+                            type="password"
+                            minlength="8"
+                            placeholder="Déjala vacía para conservarla"
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label class="field-label">
+                            Confirmar contraseña
+                        </label>
+
+                        <input
+                            id="confirmarPassword"
+                            class="client-control"
+                            type="password"
+                            minlength="8"
+                            placeholder="Repite la nueva contraseña"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <button
+                    id="btnGuardarPerfil"
+                    type="submit"
+                    class="btn-client-primary"
+                    style="margin-top:20px"
+                >
+
+                    <i class="bi bi-check-lg"></i>
+
+                    Guardar cambios
+
+                </button>
+
+
+            </form>
+
+
+        </section>
+
+
+    </div>
+
+
+</main>
+
+
+<script src="/js/cliente-api.js"></script>
+<script src="/js/perfil.js"></script>
+
+
+</body>
+</html>

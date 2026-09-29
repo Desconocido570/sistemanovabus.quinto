@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mantenimientos | NovaBus</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/admin.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/mantenimientos.css"
+    >
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">
+                <i class="bi bi-bus-front-fill"></i>
+            </div>
+
+            <div>
+                <span class="brand-main">Nova</span>
+                <span class="brand-secondary">Bus</span>
+                <small>ADMIN PANEL</small>
+            </div>
+
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <span class="menu-title">PRINCIPAL</span>
+
+            <a href="/admin/dashboard.html" class="menu-item">
+                <i class="bi bi-grid-fill"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <span class="menu-title">GESTIÓN</span>
+
+            <a href="/admin/usuarios.html" class="menu-item">
+                <i class="bi bi-people"></i>
+                <span>Usuarios</span>
+            </a>
+
+            <a href="/admin/empleados.html" class="menu-item">
+                <i class="bi bi-person-badge"></i>
+                <span>Empleados</span>
+            </a>
+
+            <a href="/admin/conductores.html" class="menu-item">
+                <i class="bi bi-person-vcard"></i>
+                <span>Conductores</span>
+            </a>
+
+            <a href="/admin/buses.html" class="menu-item">
+                <i class="bi bi-bus-front"></i>
+                <span>Buses</span>
+            </a>
+
+            <a href="/admin/rutas.html" class="menu-item">
+                <i class="bi bi-signpost-split"></i>
+                <span>Rutas</span>
+            </a>
+
+            <a href="/admin/viajes.html" class="menu-item">
+                <i class="bi bi-calendar2-week"></i>
+                <span>Viajes</span>
+            </a>
+
+            <span class="menu-title">OPERACIONES</span>
+
+            <a href="/admin/reservas.html" class="menu-item">
+                <i class="bi bi-journal-check"></i>
+                <span>Reservas</span>
+            </a>
+
+            <a href="/admin/boletos.html" class="menu-item">
+                <i class="bi bi-ticket-perforated"></i>
+                <span>Boletos</span>
+            </a>
+
+            <a href="/admin/pagos.html" class="menu-item">
+                <i class="bi bi-credit-card"></i>
+                <span>Pagos</span>
+            </a>
+
+            <a href="/admin/mantenimientos.html" class="menu-item active">
+                <i class="bi bi-tools"></i>
+                <span>Mantenimientos</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+
+            <button
+                id="btnCerrarSesion"
+                class="btn-logout"
+                type="button"
+            >
+                <i class="bi bi-box-arrow-left"></i>
+                <span>Cerrar sesión</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <button
+                id="btnMenu"
+                class="btn-menu-mobile"
+                type="button"
+            >
+                <i class="bi bi-list"></i>
+            </button>
+
+            <div class="topbar-right">
+
+                <div class="admin-profile">
+
+                    <div class="admin-avatar">
+                        A
+                    </div>
+
+                    <div class="admin-info">
+                        <strong id="nombreAdmin">
+                            Administrador
+                        </strong>
+                        <small>Administrador</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="dashboard-content">
+
+            <div class="mantenimientos-heading">
+
+                <div>
+
+                    <span class="heading-label">
+                        FLOTA
+                    </span>
+
+                    <h1>
+                        Mantenimientos
+                    </h1>
+
+                    <p>
+                        Controla los mantenimientos y disponibilidad de los buses.
+                    </p>
+
+                </div>
+
+                <button
+                    id="btnNuevoMantenimiento"
+                    class="btn-nuevo-mantenimiento"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalMantenimiento"
+                >
+                    <i class="bi bi-plus-lg"></i>
+                    Nuevo mantenimiento
+                </button>
+
+            </div>
+
+
+            <div class="mantenimiento-stats">
+
+                <div class="mantenimiento-stat">
+                    <small>TOTAL</small>
+                    <strong id="statTotal">0</strong>
+                </div>
+
+                <div class="mantenimiento-stat">
+                    <small>PENDIENTES</small>
+                    <strong id="statPendientes">0</strong>
+                </div>
+
+                <div class="mantenimiento-stat">
+                    <small>EN PROCESO</small>
+                    <strong id="statProceso">0</strong>
+                </div>
+
+                <div class="mantenimiento-stat">
+                    <small>COSTO TOTAL</small>
+                    <strong id="statCosto">$0.00</strong>
+                </div>
+
+            </div>
+
+
+            <div class="mantenimientos-card">
+
+                <div class="mantenimientos-tools">
+
+                    <div class="search-box-mantenimiento">
+
+                        <i class="bi bi-search"></i>
+
+                        <input
+                            id="buscarMantenimiento"
+                            type="text"
+                            placeholder="Buscar bus, placa o tipo de mantenimiento..."
+                        >
+
+                    </div>
+
+                    <select
+                        id="filtroEstadoMantenimiento"
+                        class="form-select filtro-mantenimiento"
+                    >
+                        <option value="">
+                            Todos los estados
+                        </option>
+
+                        <option value="PENDIENTE">
+                            Pendiente
+                        </option>
+
+                        <option value="EN_PROCESO">
+                            En proceso
+                        </option>
+
+                        <option value="FINALIZADO">
+                            Finalizado
+                        </option>
+
+                        <option value="CANCELADO">
+                            Cancelado
+                        </option>
+                    </select>
+
+                </div>
+
+
+                <div class="table-responsive">
+
+                    <table class="table mantenimientos-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Bus</th>
+                                <th>Tipo</th>
+                                <th>Inicio</th>
+                                <th>Fin</th>
+                                <th>Costo</th>
+                                <th>Estado</th>
+                                <th class="text-end">Acciones</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tablaMantenimientos">
+
+                            <tr>
+                                <td colspan="7">
+                                    <div class="tabla-mantenimientos-vacia">
+                                        Cargando mantenimientos...
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div
+    class="modal fade"
+    id="modalMantenimiento"
+    tabindex="-1"
+>
+
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+        <div class="modal-content modal-mantenimiento">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="heading-label">
+                        MANTENIMIENTO
+                    </span>
+
+                    <h5
+                        id="tituloModalMantenimiento"
+                        class="modal-title"
+                    >
+                        Nuevo mantenimiento
+                    </h5>
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                ></button>
+
+            </div>
+
+
+            <form id="formMantenimiento">
+
+                <div class="modal-body">
+
+                    <input
+                        id="idMantenimiento"
+                        type="hidden"
+                    >
+
+                    <div
+                        id="alertaMantenimiento"
+                        class="alert d-none"
+                    ></div>
+
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+
+                            <label class="form-label">
+                                Bus *
+                            </label>
+
+                            <select
+                                id="idBus"
+                                class="form-select"
+                                required
+                            >
+                                <option value="">
+                                    Seleccionar bus...
+                                </option>
+                            </select>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <label class="form-label">
+                                Tipo de mantenimiento *
+                            </label>
+
+                            <select
+                                id="tipoMantenimiento"
+                                class="form-select"
+                                required
+                            >
+                                <option value="">
+                                    Seleccionar...
+                                </option>
+
+                                <option value="PREVENTIVO">
+                                    Preventivo
+                                </option>
+
+                                <option value="CORRECTIVO">
+                                    Correctivo
+                                </option>
+
+                                <option value="MOTOR">
+                                    Motor
+                                </option>
+
+                                <option value="FRENOS">
+                                    Frenos
+                                </option>
+
+                                <option value="NEUMATICOS">
+                                    Neumáticos
+                                </option>
+
+                                <option value="ELECTRICO">
+                                    Sistema eléctrico
+                                </option>
+
+                                <option value="OTRO">
+                                    Otro
+                                </option>
+                            </select>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <label class="form-label">
+                                Fecha de inicio *
+                            </label>
+
+                            <input
+                                id="fechaInicio"
+                                type="date"
+                                class="form-control"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <label class="form-label">
+                                Fecha de fin
+                            </label>
+
+                            <input
+                                id="fechaFin"
+                                type="date"
+                                class="form-control"
+                            >
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <label class="form-label">
+                                Costo
+                            </label>
+
+                            <input
+                                id="costo"
+                                type="number"
+                                class="form-control"
+                                min="0"
+                                step="0.01"
+                                placeholder="0.00"
+                            >
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <label class="form-label">
+                                Estado *
+                            </label>
+
+                            <select
+                                id="estadoMantenimiento"
+                                class="form-select"
+                                required
+                            >
+                                <option value="PENDIENTE">
+                                    Pendiente
+                                </option>
+
+                                <option value="EN_PROCESO">
+                                    En proceso
+                                </option>
+
+                                <option value="FINALIZADO">
+                                    Finalizado
+                                </option>
+
+                                <option value="CANCELADO">
+                                    Cancelado
+                                </option>
+                            </select>
+
+                        </div>
+
+                        <div class="col-12">
+
+                            <label class="form-label">
+                                Descripción
+                            </label>
+
+                            <textarea
+                                id="descripcion"
+                                class="form-control"
+                                placeholder="Detalle de los trabajos realizados o por realizar..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button
+                        type="button"
+                        class="btn btn-light"
+                        data-bs-dismiss="modal"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Guardar mantenimiento
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/mantenimientos.js"></script>
+
+</body>
+</html>

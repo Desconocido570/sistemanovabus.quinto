@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Crear cuenta | NovaBus</title>
+
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="/css/registro.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="register-card">
+
+
+    <section class="register-side">
+
+
+        <div class="register-brand">
+
+            <div class="register-icon">
+
+                <i class="bi bi-bus-front-fill"></i>
+
+            </div>
+
+            NovaBus
+
+        </div>
+
+
+        <h2>
+            Tu próximo viaje comienza aquí.
+        </h2>
+
+
+        <p>
+            Crea tu cuenta para buscar rutas, escoger tus
+            asientos, reservar o comprar tus boletos y
+            descargarlos en PDF.
+        </p>
+
+
+    </section>
+
+
+
+    <section class="register-form">
+
+
+        <h1>
+            Crear cuenta
+        </h1>
+
+
+        <p>
+            Completa tus datos para registrarte como cliente.
+        </p>
+
+
+        <div
+            id="alertaRegistro"
+            class="register-alert hidden"
+        ></div>
+
+
+        <form id="formRegistro">
+
+
+            <div class="register-grid">
+
+
+                <div>
+
+                    <label class="register-label">
+                        NOMBRES *
+                    </label>
+
+                    <input
+                        id="nombres"
+                        class="register-input"
+                        type="text"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label class="register-label">
+                        APELLIDOS *
+                    </label>
+
+                    <input
+                        id="apellidos"
+                        class="register-input"
+                        type="text"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label class="register-label">
+                        CÉDULA *
+                    </label>
+
+                    <input
+                        id="cedula"
+                        class="register-input"
+                        type="text"
+                        maxlength="20"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label class="register-label">
+                        TELÉFONO
+                    </label>
+
+                    <input
+                        id="telefono"
+                        class="register-input"
+                        type="text"
+                        maxlength="20"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label class="register-label">
+                        FECHA DE NACIMIENTO
+                    </label>
+
+                    <input
+                        id="fechaNacimiento"
+                        class="register-input"
+                        type="date"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label class="register-label">
+                        CORREO *
+                    </label>
+
+                    <input
+                        id="correo"
+                        class="register-input"
+                        type="email"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label class="register-label">
+                        CONTRASEÑA *
+                    </label>
+
+                    <input
+                        id="password"
+                        class="register-input"
+                        type="password"
+                        minlength="8"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label class="register-label">
+                        CONFIRMAR CONTRASEÑA *
+                    </label>
+
+                    <input
+                        id="confirmarPassword"
+                        class="register-input"
+                        type="password"
+                        minlength="8"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                id="btnRegistro"
+                class="register-button"
+                type="submit"
+            >
+
+                Crear mi cuenta
+
+            </button>
+
+
+        </form>
+
+
+        <div class="register-footer">
+
+            ¿Ya tienes una cuenta?
+
+            <a href="/login.html">
+                Iniciar sesión
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+</div>
+
+
+<script src="/js/registro.js"></script>
+
+
+</body>
+</html>

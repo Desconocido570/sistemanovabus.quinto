@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajes | NovaBus Admin</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/viajes.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+<aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="sidebar-brand-icon">
+                <i class="bi bi-bus-front-fill"></i>
+            </div>
+            <div class="sidebar-brand-text">
+                <strong>NovaBus</strong>
+                <small>ADMIN PANEL</small>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+<div class="sidebar-section-title">PRINCIPAL</div>
+<a href="/admin/dashboard.html" class="sidebar-link"><i class="bi bi-grid-fill"></i><span>Dashboard</span></a>
+<div class="sidebar-section-title">GESTIÓN</div>
+<a href="/admin/usuarios.html" class="sidebar-link"><i class="bi bi-people"></i><span>Usuarios</span></a>
+<a href="/admin/empleados.html" class="sidebar-link"><i class="bi bi-person-badge"></i><span>Empleados</span></a>
+<a href="/admin/conductores.html" class="sidebar-link"><i class="bi bi-person-vcard"></i><span>Conductores</span></a>
+<a href="/admin/buses.html" class="sidebar-link"><i class="bi bi-bus-front"></i><span>Buses</span></a>
+<a href="/admin/asientos.html" class="sidebar-link"><i class="bi bi-grid-3x3-gap"></i><span>Asientos</span></a>
+<a href="/admin/rutas.html" class="sidebar-link"><i class="bi bi-signpost-split"></i><span>Rutas</span></a>
+<a href="/admin/viajes.html" class="sidebar-link active"><i class="bi bi-calendar2-week"></i><span>Viajes</span></a>
+<div class="sidebar-section-title">OPERACIONES</div>
+<a href="/admin/reservas.html" class="sidebar-link"><i class="bi bi-journal-check"></i><span>Reservas</span></a>
+<a href="/admin/boletos.html" class="sidebar-link"><i class="bi bi-ticket-perforated"></i><span>Boletos</span></a>
+<a href="/admin/pagos.html" class="sidebar-link"><i class="bi bi-credit-card"></i><span>Pagos</span></a>
+<a href="/admin/mantenimientos.html" class="sidebar-link"><i class="bi bi-tools"></i><span>Mantenimientos</span></a>
+</nav>
+        <div class="sidebar-footer">
+            <button id="btnCerrarSesion" type="button" class="btn-logout">
+                <i class="bi bi-box-arrow-left"></i>
+                Cerrar sesión
+            </button>
+        </div>
+    </aside>
+
+    <main class="admin-main">
+
+
+<header class="admin-topbar">
+    <div class="admin-topbar-content">
+        <button id="btnMenu" type="button" class="btn-menu">
+            <i class="bi bi-list"></i>
+        </button>
+
+        <div class="topbar-actions">
+            <button type="button" class="notification-button" aria-label="Notificaciones">
+                <i class="bi bi-bell"></i>
+            </button>
+
+            <div class="admin-user">
+                <div class="admin-avatar">A</div>
+
+                <div class="admin-user-info">
+                    <strong id="nombreAdmin">Administrador</strong>
+                    <small>Administrador</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+        <section class="admin-content">
+            <div class="page-container">
+
+                <div class="page-header">
+                    <div><span class="page-eyebrow">PROGRAMACIÓN</span><h1 class="page-title">Viajes</h1><p class="page-subtitle">Programa y administra las salidas de NovaBus.</p></div>
+                    <button id="btnNuevoViaje" type="button" class="btn-admin-primary"><i class="bi bi-calendar-plus"></i> Programar viaje</button>
+                </div>
+
+                <div class="stats-grid stats-grid-4">
+                    <article class="stat-card"><div><span class="stat-label">TOTAL</span><h2 id="totalViajes" class="stat-value">0</h2><span class="stat-description">Viajes registrados</span></div><div class="stat-icon purple"><i class="bi bi-calendar2-week"></i></div></article>
+                    <article class="stat-card"><div><span class="stat-label">PROGRAMADOS</span><h2 id="viajesProgramados" class="stat-value">0</h2><span class="stat-description">Próximas salidas</span></div><div class="stat-icon blue"><i class="bi bi-clock"></i></div></article>
+                    <article class="stat-card"><div><span class="stat-label">EN CURSO</span><h2 id="viajesEnCurso" class="stat-value">0</h2><span class="stat-description">Actualmente viajando</span></div><div class="stat-icon green"><i class="bi bi-bus-front"></i></div></article>
+                    <article class="stat-card"><div><span class="stat-label">CANCELADOS</span><h2 id="viajesCancelados" class="stat-value">0</h2><span class="stat-description">Viajes cancelados</span></div><div class="stat-icon orange"><i class="bi bi-x-circle"></i></div></article>
+                </div>
+
+                <div class="admin-card">
+                    <div class="admin-toolbar">
+                        <div class="search-box"><i class="bi bi-search"></i><input id="buscarViaje" type="search" placeholder="Buscar ruta, bus o conductor..."></div>
+                        <input id="filtroFechaViaje" type="date" class="admin-filter">
+                        <select id="filtroEstadoViaje" class="admin-filter"><option value="">Todos los estados</option><option value="PROGRAMADO">Programado</option><option value="EN_CURSO">En curso</option><option value="FINALIZADO">Finalizado</option><option value="CANCELADO">Cancelado</option></select>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead><tr><th>Ruta</th><th>Salida</th><th>Bus</th><th>Conductor</th><th>Precio</th><th>Ocupación</th><th>Estado</th><th class="text-end">Acciones</th></tr></thead>
+                            <tbody id="tablaViajes"><tr><td colspan="8"><div class="table-empty"><i class="bi bi-hourglass-split"></i><span>Cargando viajes...</span></div></td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="modalViaje" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header"><div><span class="page-eyebrow">VIAJE</span><h5 id="tituloModalViaje" class="modal-title">Programar viaje</h5></div><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                            <form id="formViaje">
+                                <div class="modal-body">
+                                    <input type="hidden" id="idViaje">
+                                    <div id="alertaViaje" class="alert d-none"></div>
+                                    <div class="row g-3">
+                                        <div class="col-12"><label for="idRuta" class="form-label">Ruta *</label><select id="idRuta" class="form-select" required><option value="">Seleccionar ruta...</option></select></div>
+                                        <div class="col-md-6"><label for="idBus" class="form-label">Bus *</label><select id="idBus" class="form-select" required><option value="">Seleccionar bus...</option></select></div>
+                                        <div class="col-md-6"><label for="idConductor" class="form-label">Conductor *</label><select id="idConductor" class="form-select" required><option value="">Seleccionar conductor...</option></select></div>
+                                        <div class="col-md-6"><label for="fechaHoraSalida" class="form-label">Fecha y hora de salida *</label><input id="fechaHoraSalida" type="datetime-local" class="form-control" required></div>
+                                        <div class="col-md-6"><label for="fechaHoraLlegada" class="form-label">Fecha y hora de llegada *</label><input id="fechaHoraLlegada" type="datetime-local" class="form-control" required></div>
+                                        <div class="col-md-6"><label for="precio" class="form-label">Precio *</label><input id="precio" type="number" step="0.01" min="0" class="form-control" required></div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer"><button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button><button id="btnGuardarViaje" type="submit" class="btn-admin-primary"><i class="bi bi-check-lg"></i> Guardar</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/admin.js"></script>
+<script src="/js/viajes.js"></script>
+</body>
+</html>

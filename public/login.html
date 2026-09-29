@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión | NovaBus</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+
+    <main class="login-page">
+
+        <section class="login-brand">
+
+            <div class="brand-wrap">
+
+                <div class="brand-logo">
+                    <div class="brand-mark">
+                        <i class="bi bi-bus-front-fill"></i>
+                    </div>
+
+                    <strong>NovaBus</strong>
+                </div>
+
+                <span class="brand-pill">
+                    <i class="bi bi-stars"></i>
+                    Tu viaje comienza aquí
+                </span>
+
+                <h1>
+                    Conectamos personas con
+                    <span>nuevos destinos.</span>
+                </h1>
+
+                <p>
+                    Reserva tus viajes, elige tu asiento y disfruta una
+                    experiencia cómoda, segura y moderna.
+                </p>
+
+                <div class="brand-benefits">
+                    <span><i class="bi bi-shield-check"></i> Viajes seguros</span>
+                    <span><i class="bi bi-ticket-perforated"></i> Reserva rápida</span>
+                    <span><i class="bi bi-grid-3x3-gap"></i> Elige tu asiento</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="login-form-wrap">
+
+            <form id="formLogin" class="login-card">
+
+                <span class="eyebrow">BIENVENIDO</span>
+
+                <h2>Inicia sesión</h2>
+
+                <p class="subtitle">
+                    Ingresa tus datos para acceder a tu cuenta.
+                </p>
+
+                <div id="alerta" class="alert d-none"></div>
+
+                <div class="mb-3">
+                    <label for="correo" class="form-label">
+                        Correo electrónico
+                    </label>
+
+                    <div class="input-icon">
+                        <i class="bi bi-envelope"></i>
+
+                        <input
+                            id="correo"
+                            type="email"
+                            class="form-control"
+                            placeholder="correo@ejemplo.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="mb-3">
+
+                    <div class="password-label-row">
+                        <label for="password" class="form-label">
+                            Contraseña
+                        </label>
+                    </div>
+
+                    <div class="input-icon password-input">
+                        <i class="bi bi-lock"></i>
+
+                        <input
+                            id="password"
+                            type="password"
+                            class="form-control"
+                            placeholder="Ingresa tu contraseña"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            id="btnMostrarPassword"
+                            type="button"
+                            class="btn-show-password"
+                            aria-label="Mostrar contraseña"
+                        >
+                            <i id="iconPassword" class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button
+                    id="btnLogin"
+                    type="submit"
+                    class="btn-login"
+                >
+                    <span id="btnTexto">Iniciar sesión</span>
+
+                    <span id="btnCargando" class="d-none">
+                        <span class="spinner-border spinner-border-sm me-2"></span>
+                        Ingresando...
+                    </span>
+                </button>
+
+                <p class="register-link">
+                    ¿No tienes una cuenta?
+                    <a href="/registro.html">Crear cuenta</a>
+                </p>
+
+                <div class="security-message">
+                    <i class="bi bi-shield-check"></i>
+                    Tus datos están protegidos mediante conexiones seguras.
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <script src="/js/login.js"></script>
+</body>
+</html>
